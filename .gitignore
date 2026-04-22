@@ -22,6 +22,9 @@ dist/
 dist-ssr/
 *.local
 
+# ── Vite cache ────────────────────────────────────────────────
+**/.vite/
+
 # ── Uploads (user content, not source) ───────────────────────
 backend/uploads/
 
