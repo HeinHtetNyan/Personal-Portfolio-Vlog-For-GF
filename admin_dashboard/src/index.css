@@ -742,7 +742,12 @@ html[data-theme='dark'] .chip.review     { background: #332B1F; color: #D4BA8A; 
 
 /* ── Tablet / small desktop (≤ 768px) ─────────────────────── */
 @media (max-width: 768px) {
-  .app { grid-template-columns: 0 1fr; }
+  /* Use block layout — avoids cross-browser issues with grid-template-columns: 0 */
+  .app { display: block; }
+  .main { width: 100%; min-height: 100vh; }
+
+  /* Body overflow guard */
+  body { overflow-x: hidden; }
 
   .sidebar {
     position: fixed;
@@ -768,6 +773,11 @@ html[data-theme='dark'] .chip.review     { background: #332B1F; color: #D4BA8A; 
   .topbar-search { display: none; }
   .page { padding: 20px 16px 60px; }
   .page-title { font-size: 28px; }
+
+  /* Touch-friendly tap targets */
+  .icon-btn { width: 44px; height: 44px; }
+  .btn { min-height: 44px; }
+  .field-input { min-height: 44px; padding: 11px 12px; }
 
   /* Dashboard grids collapse */
   .stats-grid { grid-template-columns: repeat(2,1fr) !important; }
@@ -795,6 +805,13 @@ html[data-theme='dark'] .chip.review     { background: #332B1F; color: #D4BA8A; 
   .editor-wrap { padding: 24px 16px 60px; max-width: 100%; }
   .editor-toolbar { top: 53px; padding: 8px 16px; }
   .editor-toolbar .btn-ghost, .editor-toolbar .btn-accent { font-size: 12px; padding: 5px 10px !important; }
+  .editor-title { font-size: 26px; }
+
+  /* Seg-control: scroll horizontally instead of wrapping */
+  .seg-control { overflow-x: auto; width: 100%; max-width: 100%; }
+
+  /* Global image guard */
+  img { max-width: 100%; }
 }
 
 /* ── Mobile (≤ 480px) ───────────────────────────────────────── */
