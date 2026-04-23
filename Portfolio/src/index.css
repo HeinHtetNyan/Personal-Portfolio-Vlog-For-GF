@@ -297,4 +297,19 @@ p { margin: 0; line-height: 1.6; color: var(--ink-2); }
   .footer { margin-top: 60px; padding-top: 48px; padding-bottom: 28px; }
   .marquee-track { font-size: 26px; gap: 32px; }
   .mobile-nav-footer { margin-top: 32px; }
+
+  /* ── Image responsiveness ── */
+
+  /* Work masonry: drop fixed heights, use consistent aspect ratio */
+  .work-img-wrap { height: auto !important; aspect-ratio: 3/2; }
+
+  /* About section: natural image proportions, no aggressive crop */
+  .home-about-img { height: auto !important; }
+
+  /* Post two-column split: natural ratio, remove negative side margins */
+  .post-two-col { margin-left: 0 !important; margin-right: 0 !important; grid-template-columns: 1fr !important; }
+  .post-two-col-img { height: auto !important; aspect-ratio: 4/3; }
+
+  /* Full-bleed inline figures: remove negative margin so they don't overflow */
+  figure { margin-left: 0 !important; margin-right: 0 !important; }
 }

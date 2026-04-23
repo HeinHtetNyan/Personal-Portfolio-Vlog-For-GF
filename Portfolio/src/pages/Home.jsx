@@ -161,7 +161,7 @@ export default function Home({ go }) {
         <div className="grid-about">
           <div className="reveal" style={{ position: 'relative' }}>
             <div style={{ position: 'relative', borderRadius: 24, overflow: 'hidden', boxShadow: 'var(--shadow)' }}>
-              <img src={IMG.about} style={{ width: '100%', height: 560, objectFit: 'cover' }} alt="July" />
+              <img src={IMG.about} className="home-about-img" style={{ width: '100%', height: 560, objectFit: 'cover' }} alt="July" />
             </div>
             <div style={{ position: 'absolute', top: -20, left: -20, width: 120, height: 120, borderRadius: '50%', background: 'var(--accent)', display: 'grid', placeItems: 'center', fontFamily: 'var(--script)', color: '#fff', fontSize: 22, textAlign: 'center', lineHeight: 1.1, transform: 'rotate(-8deg)' }}>
               since<br />2018

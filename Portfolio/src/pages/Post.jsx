@@ -114,8 +114,8 @@ export default function Post({ go, slug }) {
             );
             if (b.type === 'two') return (
               <div key={i} className="reveal grid-2 post-two-col" style={{ margin: '48px -60px' }}>
-                <div style={{ borderRadius: 12, overflow: 'hidden', height: 420 }}><img src={b.a} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" /></div>
-                <div style={{ borderRadius: 12, overflow: 'hidden', height: 420 }}><img src={b.b} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" /></div>
+                <div className="post-two-col-img" style={{ borderRadius: 12, overflow: 'hidden', height: 420 }}><img src={b.a} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" /></div>
+                <div className="post-two-col-img" style={{ borderRadius: 12, overflow: 'hidden', height: 420 }}><img src={b.b} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" /></div>
               </div>
             );
             return null;

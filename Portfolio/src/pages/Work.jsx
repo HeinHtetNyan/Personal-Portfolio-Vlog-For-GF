@@ -89,7 +89,7 @@ export default function Work({ go }) {
                 <div key={w.id} className={`reveal d${(i % 4) + 1}`}
                   onMouseEnter={() => setHover(w.id)} onMouseLeave={() => setHover(null)}
                   style={{ breakInside: 'avoid', marginBottom: 24, borderRadius: 18, overflow: 'hidden', position: 'relative' }}>
-                  <div style={{ position: 'relative', height: h, background: 'var(--bg-2)' }}>
+                  <div className="work-img-wrap" style={{ position: 'relative', height: h, background: 'var(--bg-2)' }}>
                     {src
                       ? <img src={src} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform .7s', transform: hover === w.id ? 'scale(1.05)' : 'scale(1)' }} alt={w.title} />
                       : <div style={{ width: '100%', height: '100%', background: 'linear-gradient(135deg,var(--accent-soft),var(--bg-2))' }} />
