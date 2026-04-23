@@ -52,7 +52,7 @@ export default function Contact() {
     <div className="page" style={{ overflow: 'hidden' }}>
       <section className="container" style={{ paddingTop: 40, paddingBottom: 40, position: 'relative' }}>
         <Blobs variant="a" />
-        <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1.3fr 1fr', gap: 80, alignItems: 'end' }}>
+        <div className="grid-2col" style={{ position: 'relative' }}>
           <div>
             <div className="reveal" style={{ color: 'var(--ink-3)', fontSize: 12, letterSpacing: '.2em', textTransform: 'uppercase', marginBottom: 20 }}>— Contact</div>
             <h1 className="reveal d1" style={{ fontSize: 'clamp(56px,9vw,160px)', lineHeight: .95, letterSpacing: '-0.02em' }}>
@@ -67,7 +67,7 @@ export default function Contact() {
       </section>
 
       <section className="container" style={{ paddingTop: 60, paddingBottom: 40 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1.3fr 1fr', gap: 60 }}>
+        <div className="grid-2col">
           <div className="reveal" style={{ background: 'var(--surface)', borderRadius: 28, padding: 48, border: '1px solid var(--line)', boxShadow: 'var(--shadow)' }}>
             {!sent ? (
               <form onSubmit={submit} style={{ display: 'grid', gap: 24 }}>

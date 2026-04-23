@@ -175,6 +175,34 @@ p { margin: 0; line-height: 1.6; color: var(--ink-2); }
   .tweaks { right: 12px; bottom: 12px; width: 220px; }
 }
 
+/* ── Responsive grid utilities ──────────────────────────────────── */
+.grid-hero     { display: grid; grid-template-columns: 1.1fr 1fr;      gap: 60px; align-items: center; }
+.grid-2col     { display: grid; grid-template-columns: 1.3fr 1fr;      gap: 80px; align-items: end; }
+.grid-about    { display: grid; grid-template-columns: 1fr 1.2fr;      gap: 80px; align-items: start; }
+.grid-featured { display: grid; grid-template-columns: 1.2fr 1fr;      gap: 48px; align-items: center; }
+.grid-work-hdr { display: grid; grid-template-columns: 1.4fr 1fr;      gap: 60px; align-items: end; }
+.grid-3        { display: grid; grid-template-columns: repeat(3,1fr);  gap: 28px; }
+.grid-2        { display: grid; grid-template-columns: repeat(2,1fr);  gap: 24px; }
+.grid-12       { display: grid; grid-template-columns: repeat(12,1fr); gap: 24px; }
+.masonry       { column-count: 3; column-gap: 24px; }
+
+@media (max-width: 768px) {
+  .grid-hero     { grid-template-columns: 1fr; gap: 32px; }
+  .hero-collage  { display: none !important; }
+  .grid-2col     { grid-template-columns: 1fr; gap: 24px; }
+  .grid-about    { grid-template-columns: 1fr; gap: 32px; }
+  .grid-featured { grid-template-columns: 1fr; gap: 24px; }
+  .grid-work-hdr { grid-template-columns: 1fr; gap: 16px; }
+  .grid-3        { grid-template-columns: 1fr; gap: 20px; }
+  .grid-2        { grid-template-columns: 1fr; gap: 16px; }
+  .grid-12       { grid-template-columns: repeat(2,1fr) !important; gap: 12px; }
+  .grid-12 > *   { grid-column: span 1 !important; height: 200px !important; }
+  .masonry       { column-count: 1; }
+  .post-two-col  { margin: 24px 0 !important; grid-template-columns: 1fr !important; }
+  .page          { padding-top: 72px; }
+  .btn           { padding: 12px 20px; font-size: 13px; }
+}
+
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.45; }

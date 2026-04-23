@@ -33,7 +33,7 @@ export default function Work({ go }) {
     <div className="page" style={{ overflow: 'hidden' }}>
       <section className="container" style={{ paddingTop: 40, paddingBottom: 60, position: 'relative' }}>
         <Blobs variant="a" />
-        <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 60, alignItems: 'end' }}>
+        <div className="grid-work-hdr" style={{ position: 'relative' }}>
           <div>
             <div className="reveal" style={{ color: 'var(--ink-3)', fontSize: 12, letterSpacing: '.2em', textTransform: 'uppercase', marginBottom: 20 }}>
               — Selected Work
@@ -66,7 +66,7 @@ export default function Work({ go }) {
         </div>
 
         {isLoading && (
-          <div style={{ columnCount: 3, columnGap: 24 }}>
+          <div className="masonry">
             {[1,2,3,4,5,6].map(i => (
               <div key={i} style={{ breakInside: 'avoid', marginBottom: 24, borderRadius: 18, height: HEIGHTS[i % HEIGHTS.length], background: 'var(--bg-2)', animation: 'pulse 1.5s ease-in-out infinite' }} />
             ))}
@@ -81,7 +81,7 @@ export default function Work({ go }) {
         )}
 
         {!isLoading && filtered.length > 0 && (
-          <div style={{ columnCount: 3, columnGap: 24 }}>
+          <div className="masonry">
             {filtered.map((w, i) => {
               const src = coverOf(w);
               const h = HEIGHTS[i % HEIGHTS.length];

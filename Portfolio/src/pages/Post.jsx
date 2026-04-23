@@ -113,7 +113,7 @@ export default function Post({ go, slug }) {
               </figure>
             );
             if (b.type === 'two') return (
-              <div key={i} className="reveal" style={{ margin: '48px -60px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+              <div key={i} className="reveal grid-2 post-two-col" style={{ margin: '48px -60px' }}>
                 <div style={{ borderRadius: 12, overflow: 'hidden', height: 420 }}><img src={b.a} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" /></div>
                 <div style={{ borderRadius: 12, overflow: 'hidden', height: 420 }}><img src={b.b} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" /></div>
               </div>
@@ -147,7 +147,7 @@ export default function Post({ go, slug }) {
       {morePosts.length > 0 && (
         <section className="container" style={{ paddingTop: 120 }}>
           <div className="reveal" style={{ color: 'var(--ink-3)', fontSize: 12, letterSpacing: '.2em', textTransform: 'uppercase', marginBottom: 32 }}>— Keep reading</div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 28 }}>
+          <div className="grid-3">
             {morePosts.map((j, i) => {
               const src = j.cover_image_url
                 ? (j.cover_image_url.startsWith('http') ? j.cover_image_url : `${API_BASE}${j.cover_image_url}`)

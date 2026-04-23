@@ -34,7 +34,7 @@ export default function About() {
       </section>
 
       <section className="container" style={{ paddingTop: 40, paddingBottom: 80 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 80, alignItems: 'start' }}>
+        <div className="grid-about">
           <div className="reveal" style={{ position: 'sticky', top: 120 }}>
             <div style={{ borderRadius: 24, overflow: 'hidden', boxShadow: 'var(--shadow)', aspectRatio: '3/4' }}>
               <img src={IMG.about} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="July" />
@@ -50,7 +50,7 @@ export default function About() {
               <p className="reveal d2" style={{ fontSize: 17 }}>Now, I spend my time cooking, discovering new food, and sharing the things I enjoy — simple dishes, places I visit, and everyday moments.</p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginTop: 72 }}>
+            <div className="grid-2" style={{ marginTop: 72 }}>
               {PILLARS.map((p, i) => (
                 <div key={p.t} className={`reveal d${i+1}`} style={{ padding: 28, border: '1px solid var(--line)', borderRadius: 20, background: 'var(--surface)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--ink-3)', fontSize: 11, letterSpacing: '.2em', textTransform: 'uppercase' }}>

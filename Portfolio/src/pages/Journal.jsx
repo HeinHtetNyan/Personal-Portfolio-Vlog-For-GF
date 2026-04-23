@@ -67,7 +67,7 @@ export default function Journal({ go }) {
         </div>
 
         {isLoading && (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 32, marginBottom: 96 }}>
+          <div className="grid-3" style={{ marginBottom: 96 }}>
             {[1, 2, 3].map(i => (
               <div key={i} style={{ borderRadius: 16, height: 320, background: 'var(--bg-2)', animation: 'pulse 1.5s ease-in-out infinite' }} />
             ))}
@@ -82,7 +82,7 @@ export default function Journal({ go }) {
 
         {/* Featured post — first page only */}
         {!isLoading && featured && (
-          <article className="reveal" onClick={() => handleClick(featured)} style={{ cursor: 'pointer', display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 48, alignItems: 'center', marginBottom: 96 }}>
+          <article className="reveal grid-featured" onClick={() => handleClick(featured)} style={{ cursor: 'pointer', marginBottom: 96 }}>
             <div style={{ borderRadius: 24, overflow: 'hidden', height: 560, boxShadow: 'var(--shadow)' }}>
               {featured.cover_image_url
                 ? <img src={`${API_BASE}${featured.cover_image_url}`} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform .8s' }} onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.04)')} onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')} alt={featured.title} />
@@ -107,7 +107,7 @@ export default function Journal({ go }) {
         )}
 
         {/* Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 32 }}>
+        <div className="grid-3">
           {rest.map((j, i) => (
             <article key={j.id} className={`reveal d${(i % 3) + 1}`} onClick={() => handleClick(j)} style={{ cursor: 'pointer' }}>
               <div style={{ borderRadius: 16, overflow: 'hidden', height: 320, position: 'relative' }}>

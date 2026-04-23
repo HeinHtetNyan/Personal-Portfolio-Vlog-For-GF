@@ -42,7 +42,7 @@ export default function Home({ go }) {
       <section style={{ position: 'relative', padding: '40px 0 80px', overflow: 'hidden' }}>
         <Blobs variant="a" />
         <div className="container-wide" style={{ position: 'relative' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 60, alignItems: 'center' }}>
+          <div className="grid-hero">
             <div>
               <div className="reveal" style={{ display: 'flex', alignItems: 'center', gap: 12, color: 'var(--ink-3)', fontSize: 13, letterSpacing: '.2em', textTransform: 'uppercase', marginBottom: 28 }}>
                 <span style={{ width: 32, height: 1, background: 'var(--accent)' }} />
@@ -77,7 +77,7 @@ export default function Home({ go }) {
             </div>
 
             {/* RIGHT collage — keeps decorative static image */}
-            <div className="reveal d2" style={{ position: 'relative', height: 640 }}>
+            <div className="reveal d2 hero-collage" style={{ position: 'relative', height: 640 }}>
               <div style={{ position: 'absolute', inset: 0, background: 'var(--blob-a)', borderRadius: '50% 42% 48% 52%', transform: 'translate(20px,-10px)' }} />
               <div style={{ position: 'absolute', top: 40, right: 40, left: 40, bottom: 40, overflow: 'hidden', borderRadius: '48% 52% 50% 50% / 60% 55% 45% 40%', boxShadow: 'var(--shadow)' }}>
                 <img src={IMG.heroPortrait} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Chef portrait" />
@@ -124,7 +124,7 @@ export default function Home({ go }) {
             </div>
             <a className="reveal d2" onClick={() => go('work')} style={{ color: 'var(--ink-2)', fontSize: 14, cursor: 'pointer', borderBottom: '1px solid var(--line)', paddingBottom: 4 }}>See all work →</a>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12,1fr)', gap: 24 }}>
+          <div className="grid-12">
             {featuredWork.map((w, i) => {
               const span = WORK_SPANS[i] || 4;
               const h    = WORK_HEIGHTS[i] || 420;
@@ -153,7 +153,7 @@ export default function Home({ go }) {
 
       {/* ABOUT PREVIEW */}
       <section className="container" style={{ paddingTop: 160, position: 'relative', overflow: 'hidden' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 80, alignItems: 'center' }}>
+        <div className="grid-about">
           <div className="reveal" style={{ position: 'relative' }}>
             <div style={{ position: 'relative', borderRadius: 24, overflow: 'hidden', boxShadow: 'var(--shadow)' }}>
               <img src={IMG.about} style={{ width: '100%', height: 560, objectFit: 'cover' }} alt="July" />
@@ -183,7 +183,7 @@ export default function Home({ go }) {
             </div>
             <a className="reveal d2" onClick={() => go('journal')} style={{ color: 'var(--ink-2)', fontSize: 14, cursor: 'pointer', borderBottom: '1px solid var(--line)', paddingBottom: 4 }}>Read all →</a>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 28 }}>
+          <div className="grid-3">
             {latestPosts.map((p, i) => (
               <article key={p.id} className={`reveal d${i + 1}`} onClick={() => go('post', p.slug)} style={{ cursor: 'pointer' }}>
                 <div style={{ borderRadius: 16, overflow: 'hidden', height: 320, background: 'var(--bg-2)' }}>
