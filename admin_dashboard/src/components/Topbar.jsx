@@ -41,7 +41,7 @@ export default function Topbar({ route, setRoute, theme, setTheme, onNewPost, on
 
       <div className="topbar-actions">
         <button className="btn btn-accent" onClick={onNewPost}>
-          <Icon name="plus" size={15} /> New post
+          <Icon name="plus" size={15} /> <span className="btn-label">New post</span>
         </button>
         <button className="icon-btn topbar-tweaks-btn" onClick={onToggleTweaks} title="Tweaks">
           <Icon name="sparkles" />

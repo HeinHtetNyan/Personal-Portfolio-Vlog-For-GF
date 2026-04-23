@@ -804,7 +804,6 @@ html[data-theme='dark'] .chip.review     { background: #332B1F; color: #D4BA8A; 
   .media-grid { grid-template-columns: repeat(2,1fr); }
   .media-recent-grid { grid-template-columns: repeat(2,1fr) !important; }
   .page-title { font-size: 24px; }
-  .topbar-actions .btn-accent span:not(.icon) { display: none; }
 
   /* Stack page header title + action button vertically */
   .page-header-row { flex-direction: column; align-items: flex-start; gap: 14px; }
@@ -817,7 +816,22 @@ html[data-theme='dark'] .chip.review     { background: #332B1F; color: #D4BA8A; 
 
   /* Hide least-critical topbar icons to give crumbs room */
   .topbar-tweaks-btn, .topbar-bell-btn { display: none !important; }
+
+  /* Hide "New post" label — show icon only */
+  .topbar-actions .btn-label { display: none; }
+
   .topbar-crumb-page { font-size: 15px; }
+
+  /* Reduce card padding so stat tiles fit 2-column */
+  .card-pad { padding: 16px; }
+
+  /* Eyebrow: truncate long date text instead of word-wrapping */
+  .page-eyebrow {
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 /* ── Journal table: show only essential columns on mobile ───── */
