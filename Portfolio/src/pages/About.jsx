@@ -35,11 +35,11 @@ export default function About() {
 
       <section className="container" style={{ paddingTop: 40, paddingBottom: 80 }}>
         <div className="grid-about">
-          <div className="reveal" style={{ position: 'sticky', top: 120 }}>
+          <div className="reveal about-sticky">
             <div style={{ borderRadius: 24, overflow: 'hidden', boxShadow: 'var(--shadow)', aspectRatio: '3/4' }}>
               <img src={IMG.about} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="July" />
             </div>
-            <div style={{ fontFamily: 'var(--script)', fontSize: 28, color: 'var(--accent)', marginTop: 20, textAlign: 'center' }}>— July, Lisbon 2026</div>
+            <div style={{ fontFamily: 'var(--script)', fontSize: 28, color: 'var(--accent)', marginTop: 20, textAlign: 'center' }}>— July</div>
           </div>
           <div>
             <p className="reveal" style={{ fontFamily: 'var(--serif)', fontSize: 32, lineHeight: 1.3, color: 'var(--ink)' }}>

@@ -3,7 +3,7 @@ import { useReveal } from '../hooks';
 import Blobs from '../components/Blobs';
 import { sendMessage } from '../api/contact';
 
-const lblS = { fontSize: 11, letterSpacing: '.2em', textTransform: 'uppercase', color: 'var(--ink-3)', fontFamily: 'var(--sans)', display: 'block', marginBottom: 10 };
+const lblS = { fontSize: 11, letterSpacing: '.2em', textTransform: 'uppercase', color: 'var(--ink-2)', fontFamily: 'var(--sans)', display: 'block', marginBottom: 10 };
 const inpS = { width: '100%', padding: '14px 0', border: 'none', borderBottom: '1px solid var(--line)', background: 'transparent', fontSize: 18, fontFamily: 'var(--serif)', color: 'var(--ink)', outline: 'none' };
 const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL || 'hello@julystudio.co';
 const SITE_LOCATION = import.meta.env.VITE_SITE_LOCATION || 'Lisbon';
@@ -68,7 +68,7 @@ export default function Contact() {
 
       <section className="container" style={{ paddingTop: 60, paddingBottom: 40 }}>
         <div className="grid-2col">
-          <div className="reveal" style={{ background: 'var(--surface)', borderRadius: 28, padding: 48, border: '1px solid var(--line)', boxShadow: 'var(--shadow)' }}>
+          <div className="reveal contact-card">
             {!sent ? (
               <form onSubmit={submit} style={{ display: 'grid', gap: 24 }}>
                 <div>

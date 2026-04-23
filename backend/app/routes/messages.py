@@ -11,7 +11,7 @@ limiter = Limiter(key_func=get_remote_address)
 router = APIRouter(tags=["messages"])
 
 
-# ── Public ────────────────────────────────────────────────────────────────────
+#Public
 
 @router.post("/api/contact", response_model=MessageOut, status_code=201)
 @limiter.limit("5/minute")
@@ -23,7 +23,7 @@ def contact(request: Request, body: MessageCreate, db: Session = Depends(get_db)
     return msg
 
 
-# ── Admin ─────────────────────────────────────────────────────────────────────
+#Admin
 
 @router.get("/api/admin/messages", response_model=list[MessageOut], dependencies=[Depends(require_admin)])
 def list_messages(is_read: bool | None = None, db: Session = Depends(get_db)):

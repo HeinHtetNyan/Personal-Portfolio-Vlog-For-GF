@@ -11,7 +11,7 @@ import math
 router = APIRouter(tags=["posts"])
 
 
-# ── Public ────────────────────────────────────────────────────────────────────
+#Public
 
 @router.get("/api/posts", response_model=PaginatedPosts)
 def list_posts(
@@ -45,7 +45,7 @@ def get_post(slug: str, db: Session = Depends(get_db)):
     return post
 
 
-# ── Admin ─────────────────────────────────────────────────────────────────────
+#Admin 
 
 @router.get("/api/admin/posts", response_model=list[PostListItem], dependencies=[Depends(require_admin)])
 def admin_list_posts(

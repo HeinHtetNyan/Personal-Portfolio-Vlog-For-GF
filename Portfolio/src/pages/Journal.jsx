@@ -60,7 +60,7 @@ export default function Journal({ go }) {
       </section>
 
       <section className="container" style={{ paddingTop: 40 }}>
-        <div className="reveal" style={{ display: 'flex', gap: 8, marginBottom: 48, justifyContent: 'center', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)', padding: '16px 0' }}>
+        <div className="reveal" style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 48, justifyContent: 'center', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)', padding: '16px 0' }}>
           {CATS.map(c => (
             <button key={c} onClick={() => handleCatChange(c)} style={{ background: cat === c ? 'var(--accent)' : 'transparent', color: cat === c ? '#fff' : 'var(--ink-2)', border: 'none', padding: '10px 22px', borderRadius: 999, cursor: 'pointer', fontFamily: 'var(--sans)', fontSize: 13, letterSpacing: '.05em', transition: 'all .25s' }}>{c}</button>
           ))}

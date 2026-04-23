@@ -76,6 +76,11 @@ export default function Home({ go }) {
               </div>
             </div>
 
+            {/* Mobile portrait — shown only on small screens */}
+            <div className="hero-portrait-mobile">
+              <img src={IMG.heroPortrait} style={{ width: '100%', borderRadius: 24, objectFit: 'cover', aspectRatio: '4/3', boxShadow: 'var(--shadow)' }} alt="July" />
+            </div>
+
             {/* RIGHT collage — keeps decorative static image */}
             <div className="reveal d2 hero-collage" style={{ position: 'relative', height: 640 }}>
               <div style={{ position: 'absolute', inset: 0, background: 'var(--blob-a)', borderRadius: '50% 42% 48% 52%', transform: 'translate(20px,-10px)' }} />
@@ -116,7 +121,7 @@ export default function Home({ go }) {
 
       {/* FEATURED WORK — only renders when there is work in the DB */}
       {featuredWork.length > 0 && (
-        <section className="container" style={{ paddingTop: 140 }}>
+        <section className="container section-xl">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginBottom: 48 }}>
             <div>
               <div className="reveal" style={{ color: 'var(--ink-3)', fontSize: 12, letterSpacing: '.2em', textTransform: 'uppercase', marginBottom: 12 }}>— Featured Work</div>
@@ -152,7 +157,7 @@ export default function Home({ go }) {
       )}
 
       {/* ABOUT PREVIEW */}
-      <section className="container" style={{ paddingTop: 160, position: 'relative', overflow: 'hidden' }}>
+      <section className="container section-xl" style={{ position: 'relative', overflow: 'hidden' }}>
         <div className="grid-about">
           <div className="reveal" style={{ position: 'relative' }}>
             <div style={{ position: 'relative', borderRadius: 24, overflow: 'hidden', boxShadow: 'var(--shadow)' }}>
@@ -175,7 +180,7 @@ export default function Home({ go }) {
 
       {/* LATEST JOURNAL — only renders when there are published posts */}
       {latestPosts.length > 0 && (
-        <section className="container" style={{ paddingTop: 160 }}>
+        <section className="container section-xl">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginBottom: 48 }}>
             <div>
               <div className="reveal" style={{ color: 'var(--ink-3)', fontSize: 12, letterSpacing: '.2em', textTransform: 'uppercase', marginBottom: 12 }}>— From the Journal</div>

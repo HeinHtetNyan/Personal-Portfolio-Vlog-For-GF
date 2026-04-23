@@ -75,7 +75,7 @@ export default function Post({ go, slug }) {
 
       {coverSrc && (
         <div className="reveal container-wide" style={{ padding: 0 }}>
-          <div style={{ height: 620, overflow: 'hidden' }}>
+          <div className="post-cover">
             <img src={coverSrc} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt={p.title} />
           </div>
         </div>
@@ -145,7 +145,7 @@ export default function Post({ go, slug }) {
       </article>
 
       {morePosts.length > 0 && (
-        <section className="container" style={{ paddingTop: 120 }}>
+        <section className="container section-lg">
           <div className="reveal" style={{ color: 'var(--ink-3)', fontSize: 12, letterSpacing: '.2em', textTransform: 'uppercase', marginBottom: 32 }}>— Keep reading</div>
           <div className="grid-3">
             {morePosts.map((j, i) => {

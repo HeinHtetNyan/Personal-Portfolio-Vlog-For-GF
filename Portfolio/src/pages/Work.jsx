@@ -49,7 +49,7 @@ export default function Work({ go }) {
       </section>
 
       <section className="container" style={{ paddingTop: 40 }}>
-        <div className="reveal" style={{ display: 'flex', gap: 8, marginBottom: 40, borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)', padding: '16px 0' }}>
+        <div className="reveal" style={{ display: 'flex', gap: 8, marginBottom: 40, borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)', padding: '16px 0', overflowX: 'auto', flexWrap: 'nowrap' }}>
           {CATS.map(c => (
             <button key={c} onClick={() => setFilter(c)}
               style={{ background: filter === c ? 'var(--ink)' : 'transparent', color: filter === c ? 'var(--bg)' : 'var(--ink-2)', border: 'none', padding: '10px 20px', borderRadius: 999, cursor: 'pointer', fontFamily: 'var(--sans)', fontSize: 13, letterSpacing: '.05em', transition: 'all .25s' }}>

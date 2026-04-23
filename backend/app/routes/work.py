@@ -13,7 +13,7 @@ class ImageUrlBody(BaseModel):
 router = APIRouter(tags=["work"])
 
 
-# ── Public ────────────────────────────────────────────────────────────────────
+#Public 
 
 @router.get("/api/work", response_model=list[WorkOut])
 def list_work(type: str | None = None, db: Session = Depends(get_db)):
@@ -31,7 +31,7 @@ def get_work(id: int, db: Session = Depends(get_db)):
     return work
 
 
-# ── Admin ─────────────────────────────────────────────────────────────────────
+#Admin 
 
 @router.post("/api/admin/work", response_model=WorkOut, dependencies=[Depends(require_admin)])
 def create_work(body: WorkCreate, db: Session = Depends(get_db)):
