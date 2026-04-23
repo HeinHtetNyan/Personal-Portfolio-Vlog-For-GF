@@ -43,13 +43,13 @@ export default function Topbar({ route, setRoute, theme, setTheme, onNewPost, on
         <button className="btn btn-accent" onClick={onNewPost}>
           <Icon name="plus" size={15} /> New post
         </button>
-        <button className="icon-btn" onClick={onToggleTweaks} title="Tweaks">
+        <button className="icon-btn topbar-tweaks-btn" onClick={onToggleTweaks} title="Tweaks">
           <Icon name="sparkles" />
         </button>
         <button className="icon-btn" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} title="Toggle theme">
           <Icon name={theme === 'dark' ? 'sun' : 'moon'} />
         </button>
-        <button className="icon-btn" title="Notifications"><Icon name="bell" /></button>
+        <button className="icon-btn topbar-bell-btn" title="Notifications"><Icon name="bell" /></button>
         <div className="avatar" title="July">j</div>
       </div>
     </header>

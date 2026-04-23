@@ -143,7 +143,7 @@ p { margin: 0; line-height: 1.6; color: var(--ink-2); }
 @keyframes marq { to { transform: translateX(-50%); } }
 
 /* FOOTER */
-.footer { margin-top: 120px; padding: 80px 0 40px; border-top: 1px solid var(--line); position: relative; }
+.footer { margin-top: 120px; padding-top: 80px; padding-bottom: 40px; border-top: 1px solid var(--line); position: relative; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; }
 .footer h2 { font-size: 88px; line-height: .95; font-style: italic; }
 .footer h2 .script { font-family: var(--script); font-style: normal; color: var(--accent); }
@@ -281,6 +281,10 @@ p { margin: 0; line-height: 1.6; color: var(--ink-2); }
 
 /* ── Extra mobile overrides (≤768px) ────────────────────── */
 @media (max-width: 768px) {
+  /* Darken faint text colors on mobile */
+  :root:not([data-mode="dark"]) { --ink-3: #6A6169; --ink-2: #3A3237; }
+  p { color: var(--ink-2); }
+
   /* Featured journal article image */
   article.grid-featured > div:first-child { height: 52vw !important; min-height: 200px; }
   .section-xl { padding-top: 72px; }
@@ -290,7 +294,7 @@ p { margin: 0; line-height: 1.6; color: var(--ink-2); }
   .post-cover { height: max(44vw, 200px); }
   .contact-card { padding: 28px 20px; }
   .footer-bottom { flex-direction: column; gap: 8px; align-items: flex-start; }
-  .footer { margin-top: 60px; padding: 48px 0 28px; }
+  .footer { margin-top: 60px; padding-top: 48px; padding-bottom: 28px; }
   .marquee-track { font-size: 26px; gap: 32px; }
   .mobile-nav-footer { margin-top: 32px; }
 }

@@ -717,6 +717,7 @@ html[data-theme='dark'] .chip.review     { background: #332B1F; color: #D4BA8A; 
 /* Default hide mobile-only elements */
 .mobile-menu-btn { display: none; }
 .mobile-back-btn { display: none; }
+.topbar-tweaks-btn, .topbar-bell-btn { /* visible by default, hidden via breakpoint */ }
 
 /* Default grid layouts */
 .stats-grid { grid-template-columns: repeat(4,1fr); }
@@ -780,6 +781,10 @@ html[data-theme='dark'] .chip.review     { background: #332B1F; color: #D4BA8A; 
   .messages-list.mobile-hide { display: none; }
   .messages-detail.mobile-hide { display: none; }
   .mobile-back-btn { display: inline-flex !important; margin-bottom: 16px; }
+  .messages-detail { padding: 20px 16px; }
+
+  /* Upload zone compact */
+  .upload-zone { padding: 24px 16px; }
 
   /* Work grid */
   .work-grid { grid-template-columns: repeat(2,1fr); }
@@ -800,6 +805,41 @@ html[data-theme='dark'] .chip.review     { background: #332B1F; color: #D4BA8A; 
   .media-recent-grid { grid-template-columns: repeat(2,1fr) !important; }
   .page-title { font-size: 24px; }
   .topbar-actions .btn-accent span:not(.icon) { display: none; }
+
+  /* Stack page header title + action button vertically */
+  .page-header-row { flex-direction: column; align-items: flex-start; gap: 14px; }
+}
+
+/* ── Small phone (≤ 520px) ─────────────────────────────────── */
+@media (max-width: 520px) {
+  /* Tweaks panel stretches full-width instead of overflowing */
+  .tweaks-panel { right: 12px; left: 12px; width: auto; bottom: 12px; }
+
+  /* Hide least-critical topbar icons to give crumbs room */
+  .topbar-tweaks-btn, .topbar-bell-btn { display: none !important; }
+  .topbar-crumb-page { font-size: 15px; }
+}
+
+/* ── Journal table: show only essential columns on mobile ───── */
+@media (max-width: 640px) {
+  /* Hide Date and Views — keep Cover / Title / Category / Status / Actions */
+  .journal-table th:nth-child(4), .journal-table td:nth-child(4),
+  .journal-table th:nth-child(5), .journal-table td:nth-child(5) { display: none; }
+  /* Tighten title to prevent overflow */
+  .journal-table td:nth-child(2) > div { max-width: 130px !important; }
+  .journal-table td, .journal-table th { padding: 10px 8px; }
+}
+
+/* ── Login mobile ──────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .login-wrap { padding: 0 16px; }
+  .login-card { padding: 28px 20px; }
+}
+
+/* ── Very small screens (≤ 360px) ─────────────────────────── */
+@media (max-width: 360px) {
+  .stats-grid { grid-template-columns: 1fr !important; }
+  .page { padding: 16px 12px 60px; }
 }
 
 /* ── Login ─────────────────────────────────────────────────── */

@@ -69,7 +69,7 @@ export default function Journal({ go }) {
         {isLoading && (
           <div className="grid-3" style={{ marginBottom: 96 }}>
             {[1, 2, 3].map(i => (
-              <div key={i} style={{ borderRadius: 16, height: 320, background: 'var(--bg-2)', animation: 'pulse 1.5s ease-in-out infinite' }} />
+              <div key={i} style={{ borderRadius: 16, height: 320, background: 'var(--line)', animation: 'pulse 1.5s ease-in-out infinite' }} />
             ))}
           </div>
         )}
@@ -80,8 +80,8 @@ export default function Journal({ go }) {
           </p>
         )}
 
-        {/* Featured post — first page only */}
-        {!isLoading && featured && (
+        {/* Featured post — first page only; static fallback shows immediately while API loads */}
+        {featured && (
           <article className="reveal grid-featured" onClick={() => handleClick(featured)} style={{ cursor: 'pointer', marginBottom: 96 }}>
             <div style={{ borderRadius: 24, overflow: 'hidden', height: 560, boxShadow: 'var(--shadow)' }}>
               {featured.cover_image_url

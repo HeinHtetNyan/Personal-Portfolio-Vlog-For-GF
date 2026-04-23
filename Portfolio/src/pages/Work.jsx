@@ -68,7 +68,7 @@ export default function Work({ go }) {
         {isLoading && (
           <div className="masonry">
             {[1,2,3,4,5,6].map(i => (
-              <div key={i} style={{ breakInside: 'avoid', marginBottom: 24, borderRadius: 18, height: HEIGHTS[i % HEIGHTS.length], background: 'var(--bg-2)', animation: 'pulse 1.5s ease-in-out infinite' }} />
+              <div key={i} style={{ breakInside: 'avoid', marginBottom: 24, borderRadius: 18, height: HEIGHTS[i % HEIGHTS.length], background: 'var(--line)', animation: 'pulse 1.5s ease-in-out infinite' }} />
             ))}
           </div>
         )}
