@@ -226,6 +226,18 @@ p { margin: 0; line-height: 1.6; color: var(--ink-2); }
 /* ── Post cover image ────────────────────────────────────── */
 .post-cover { height: 620px; overflow: hidden; }
 
+/* ── Journal image containers ────────────────────────────── */
+.journal-featured-img { height: 560px; overflow: hidden; }
+.journal-card-img     { height: 320px; overflow: hidden; }
+
+/* ── Post detail image containers ────────────────────────── */
+.post-more-img    { height: 280px; overflow: hidden; }
+.post-gallery     { display: grid; }
+.post-two-col-img { height: 420px; overflow: hidden; }
+
+/* ── About image ─────────────────────────────────────────── */
+.home-about-img   { width: 100%; height: 560px; object-fit: cover; }
+
 /* ── Contact card ────────────────────────────────────────── */
 .contact-card { padding: 48px; border-radius: 28px; border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); }
 
@@ -285,13 +297,10 @@ p { margin: 0; line-height: 1.6; color: var(--ink-2); }
   :root:not([data-mode="dark"]) { --ink-3: #6A6169; --ink-2: #3A3237; }
   p { color: var(--ink-2); }
 
-  /* Featured journal article image */
-  article.grid-featured > div:first-child { height: 52vw !important; min-height: 200px; }
   .section-xl { padding-top: 72px; }
   .section-lg  { padding-top: 56px; }
   .section-md  { padding-top: 40px; }
   .about-sticky { position: relative; top: auto; }
-  .post-cover { height: max(44vw, 200px); }
   .contact-card { padding: 28px 20px; }
   .footer-bottom { flex-direction: column; gap: 8px; align-items: flex-start; }
   .footer { margin-top: 60px; padding-top: 48px; padding-bottom: 28px; }
@@ -300,16 +309,33 @@ p { margin: 0; line-height: 1.6; color: var(--ink-2); }
 
   /* ── Image responsiveness ── */
 
-  /* Work masonry: drop fixed heights, use consistent aspect ratio */
+  /* Post cover hero */
+  .post-cover { height: auto; aspect-ratio: 3/2; }
+
+  /* Journal featured post image */
+  .journal-featured-img { height: auto; aspect-ratio: 3/2; }
+
+  /* Journal grid card images */
+  .journal-card-img { height: auto; aspect-ratio: 4/3; }
+
+  /* Post detail — "keep reading" thumbnails */
+  .post-more-img { height: auto; aspect-ratio: 4/3; }
+
+  /* Work masonry: override dynamic inline height with consistent landscape ratio */
   .work-img-wrap { height: auto !important; aspect-ratio: 3/2; }
 
-  /* About section: natural image proportions, no aggressive crop */
-  .home-about-img { height: auto !important; }
+  /* About section portrait: let it breathe naturally */
+  .home-about-img { height: auto; }
 
-  /* Post two-column split: natural ratio, remove negative side margins */
-  .post-two-col { margin-left: 0 !important; margin-right: 0 !important; grid-template-columns: 1fr !important; }
-  .post-two-col-img { height: auto !important; aspect-ratio: 4/3; }
+  /* Post two-column split: stack vertically, remove bleed margins */
+  .post-two-col { margin-left: 0; margin-right: 0; grid-template-columns: 1fr; }
+  .post-two-col-img { height: auto; aspect-ratio: 4/3; }
 
-  /* Full-bleed inline figures: remove negative margin so they don't overflow */
-  figure { margin-left: 0 !important; margin-right: 0 !important; }
+  /* Full-bleed figures: remove negative margin so they don't overflow viewport */
+  figure { margin-left: 0; margin-right: 0; }
+}
+
+/* ── Post gallery: max 2 columns on small phones ────────── */
+@media (max-width: 480px) {
+  .post-gallery { grid-template-columns: repeat(2,1fr) !important; }
 }

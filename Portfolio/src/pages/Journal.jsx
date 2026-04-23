@@ -83,7 +83,7 @@ export default function Journal({ go }) {
         {/* Featured post — first page only; static fallback shows immediately while API loads */}
         {featured && (
           <article className="reveal grid-featured" onClick={() => handleClick(featured)} style={{ cursor: 'pointer', marginBottom: 96 }}>
-            <div style={{ borderRadius: 24, overflow: 'hidden', height: 560, boxShadow: 'var(--shadow)' }}>
+            <div className="journal-featured-img" style={{ borderRadius: 24, overflow: 'hidden', boxShadow: 'var(--shadow)' }}>
               {featured.cover_image_url
                 ? <img src={`${API_BASE}${featured.cover_image_url}`} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform .8s' }} onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.04)')} onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')} alt={featured.title} />
                 : featured.img
@@ -110,7 +110,7 @@ export default function Journal({ go }) {
         <div className="grid-3">
           {rest.map((j, i) => (
             <article key={j.id} className={`reveal d${(i % 3) + 1}`} onClick={() => handleClick(j)} style={{ cursor: 'pointer' }}>
-              <div style={{ borderRadius: 16, overflow: 'hidden', height: 320, position: 'relative' }}>
+              <div className="journal-card-img" style={{ borderRadius: 16, overflow: 'hidden', position: 'relative' }}>
                 {j.cover_image_url
                   ? <img src={`${API_BASE}${j.cover_image_url}`} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform .8s' }} onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.05)')} onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')} alt={j.title} />
                   : j.img

@@ -114,8 +114,8 @@ export default function Post({ go, slug }) {
             );
             if (b.type === 'two') return (
               <div key={i} className="reveal grid-2 post-two-col" style={{ margin: '48px -60px' }}>
-                <div className="post-two-col-img" style={{ borderRadius: 12, overflow: 'hidden', height: 420 }}><img src={b.a} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" /></div>
-                <div className="post-two-col-img" style={{ borderRadius: 12, overflow: 'hidden', height: 420 }}><img src={b.b} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" /></div>
+                <div className="post-two-col-img" style={{ borderRadius: 12, overflow: 'hidden' }}><img src={b.a} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" /></div>
+                <div className="post-two-col-img" style={{ borderRadius: 12, overflow: 'hidden' }}><img src={b.b} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" /></div>
               </div>
             );
             return null;
@@ -125,7 +125,7 @@ export default function Post({ go, slug }) {
         {/* Post photos gallery */}
         {p.images?.length > 0 && (
           <div className="reveal" style={{ margin: '60px 0' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: p.images.length === 1 ? '1fr' : p.images.length === 2 ? '1fr 1fr' : 'repeat(3,1fr)', gap: 12 }}>
+            <div className="post-gallery" style={{ display: 'grid', gridTemplateColumns: p.images.length === 1 ? '1fr' : p.images.length === 2 ? '1fr 1fr' : 'repeat(3,1fr)', gap: 12 }}>
               {p.images.map(img => (
                 <div key={img.id} style={{ borderRadius: 12, overflow: 'hidden', aspectRatio: p.images.length === 1 ? '16/9' : '4/3' }}>
                   <img
@@ -154,7 +154,7 @@ export default function Post({ go, slug }) {
                 : null;
               return (
                 <article key={j.id} className={`reveal d${i + 1}`} onClick={() => go('post', j.slug)} style={{ cursor: 'pointer' }}>
-                  <div style={{ borderRadius: 16, overflow: 'hidden', height: 280, background: 'var(--bg-2)' }}>
+                  <div className="post-more-img" style={{ borderRadius: 16, overflow: 'hidden', background: 'var(--bg-2)' }}>
                     {src
                       ? <img src={src} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform .8s' }}
                           onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.05)')}
