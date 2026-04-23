@@ -90,7 +90,7 @@ export default function Home({ go }) {
               <div className="reveal d4" style={{ position: 'absolute', bottom: -20, left: -20, width: 200, height: 240, borderRadius: 18, overflow: 'hidden', boxShadow: 'var(--shadow)', border: '6px solid var(--bg)' }}>
                 {workCover(workItems[0] || {})
                   ? <img src={workCover(workItems[0])} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Dish" />
-                  : <img src={IMG.work[2].img} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Dish" />
+                  : <div style={{ width: '100%', height: '100%', background: 'linear-gradient(135deg, var(--accent-soft), var(--bg-2))' }} />
                 }
               </div>
               <div className="reveal d5" style={{ position: 'absolute', top: 20, right: -10, background: 'var(--ink)', color: 'var(--bg)', fontFamily: 'var(--script)', fontSize: 32, padding: '18px 28px', borderRadius: 999, transform: 'rotate(8deg)', boxShadow: 'var(--shadow)' }}>

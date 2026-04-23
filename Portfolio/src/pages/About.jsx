@@ -10,11 +10,13 @@ const PILLARS = [
 ];
 
 const TIMELINE = [
-  { y: '1999', t: 'Born in Monywa, Myanmar', d: 'First memories shaped by home cooking and local flavors.' },
-  { y: '2016', t: 'Culinary school, Lyon', d: 'Learned to hold a knife, and mostly how to listen.' },
-  { y: '2019', t: 'Copenhagen',            d: 'Three years at a small, stubborn restaurant.' },
-  { y: '2022', t: 'A year of travel',      d: 'Japan, Morocco, Italy, Georgia. Notebook #1.' },
-  { y: '2023', t: 'July begins',           d: 'Private dinners, a journal, the first cookbook in progress.' },
+  { y: '1999', t: 'Monywa, Myanmar', d: 'Where my story begins.' },
+  { y: '2016', t: 'Monywa',          d: 'Started university. A quiet beginning.' },
+  { y: '2019', t: 'Home kitchen',    d: 'Started selling food from home. Cooking, packing, delivering — every step by myself.' },
+  { y: '2021', t: 'Monywa',          d: 'Three years of doing the same work. Learning through repetition. Understanding responsibility.' },
+  { y: '2022', t: 'Bangkok',         d: 'Moved to a new country. Started studying Culinary Arts and Design.' },
+  { y: '2025', t: 'Bangkok',         d: 'Still learning in kitchens and classrooms. Improving step by step. Trying to do things better each time.' },
+  { y: '2026', t: '',                d: 'Stepping into a professional kitchen. Learning through real work, every day.' },
 ];
 
 export default function About() {
@@ -43,11 +45,11 @@ export default function About() {
           </div>
           <div>
             <p className="reveal" style={{ fontFamily: 'var(--serif)', fontSize: 32, lineHeight: 1.3, color: 'var(--ink)' }}>
-              I'm July — a chef who enjoys cooking and exploring new places.
+              I'm July — from Monywa, now in Bangkok, learning to cook properly.
             </p>
             <div style={{ display: 'grid', gap: 24, marginTop: 48 }}>
-              <p className="reveal d1" style={{ fontSize: 17 }}>I started with simple meals at home, and over time became more curious about ingredients, flavors, and how people cook in different parts of the world. Traveling and cooking naturally became part of my life.</p>
-              <p className="reveal d2" style={{ fontSize: 17 }}>Now, I spend my time cooking, discovering new food, and sharing the things I enjoy — simple dishes, places I visit, and everyday moments.</p>
+              <p className="reveal d1" style={{ fontSize: 17 }}>I left home in 2016 to study, and somewhere along the way the kitchen became the place I kept returning to. Not because I was good at it — because it was honest. Food tells you when you're wrong.</p>
+              <p className="reveal d2" style={{ fontSize: 17 }}>Now I'm studying Culinary Arts and Design in Bangkok, cooking every day, and trying to get a little better each time. This site is where I keep track of what I make and where I go.</p>
             </div>
 
             <div className="grid-2" style={{ marginTop: 72 }}>
@@ -68,7 +70,7 @@ export default function About() {
                 <div key={e.y} className={`reveal d${(i%4)+1}`} style={{ position: 'relative', paddingBottom: 32 }}>
                   <div style={{ position: 'absolute', left: -34, top: 4, width: 10, height: 10, borderRadius: '50%', background: 'var(--accent)' }} />
                   <div style={{ fontFamily: 'var(--script)', fontSize: 24, color: 'var(--accent-ink)' }}>{e.y}</div>
-                  <div style={{ fontFamily: 'var(--serif)', fontSize: 22, marginTop: 2 }}>{e.t}</div>
+                  {e.t && <div style={{ fontFamily: 'var(--serif)', fontSize: 22, marginTop: 2 }}>{e.t}</div>}
                   <p style={{ marginTop: 4, fontSize: 14 }}>{e.d}</p>
                 </div>
               ))}

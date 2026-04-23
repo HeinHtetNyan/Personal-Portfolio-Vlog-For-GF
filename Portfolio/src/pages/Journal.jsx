@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useReveal, fmtDate } from '../hooks';
-import { IMG } from '../data';
 import Blobs from '../components/Blobs';
 import { getPosts } from '../api/posts';
 import { API_BASE } from '../api/client';
@@ -32,14 +31,9 @@ export default function Journal({ go }) {
   const posts = apiData?.items ?? null;
   const totalPages = apiData?.pages ?? 1;
 
-  // Fall back to static data while API loads or on error
-  const staticPosts = cat === 'All' ? IMG.journal : IMG.journal.filter(j => j.cat === cat);
-
   const isApiReady = !isLoading && !isError && posts !== null;
-  const featured = page === 1 ? (isApiReady ? posts[0] : staticPosts[0]) : null;
-  const rest = isApiReady
-    ? (page === 1 ? posts.slice(1) : posts)
-    : staticPosts.slice(1);
+  const featured = isApiReady && page === 1 ? posts[0] : null;
+  const rest = isApiReady ? (page === 1 ? posts.slice(1) : posts) : [];
 
   const handleClick = (item) => {
     go('post', item?.slug || null);

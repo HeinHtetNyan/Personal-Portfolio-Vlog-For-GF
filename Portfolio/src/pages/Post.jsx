@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import { useReveal, fmtDate } from '../hooks';
-import { POST_DETAIL } from '../data';
 import { getPost, getPosts } from '../api/posts';
 import { API_BASE } from '../api/client';
 
@@ -20,9 +19,9 @@ export default function Post({ go, slug }) {
 
   const morePosts = (allPostsData?.items ?? []).filter(p2 => p2.slug !== slug).slice(0, 3);
 
-  const p = apiPost || POST_DETAIL;
+  const p = apiPost;
 
-  if (isError && !apiPost) {
+  if (isError || (!isLoading && !apiPost)) {
     return (
       <div className="page" style={{ overflow: 'hidden' }}>
         <div className="container" style={{ paddingTop: 20 }}>
