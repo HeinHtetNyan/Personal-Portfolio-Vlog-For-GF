@@ -72,6 +72,7 @@ class PostListItem(BaseModel):
     views: int
     date: Optional[DateField] = None
     created_at: datetime
+    excerpt: Optional[str] = None
 
     model_config = {"from_attributes": True}
 

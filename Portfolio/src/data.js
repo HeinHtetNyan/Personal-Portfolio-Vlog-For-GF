@@ -14,19 +14,19 @@ export const IMG = {
     { id: 'w9', cat: 'Dishes',      title: 'Tomato Confit Tart',      place: 'August Light',   img: 'https://images.unsplash.com/photo-1565895405138-6c3a1555da6a?w=900&q=80&auto=format&fit=crop', h: 560 },
   ],
   journal: [
-    { id: 'j1', cat: 'Travel',   slug: 'slow-mornings-in-kyoto',              title: 'Slow mornings in Kyoto',              date: 'April 18, 2026',    read: '8 min', img: 'https://images.unsplash.com/photo-1528164344705-47542687000d?w=1000&q=80&auto=format&fit=crop', excerpt: 'A week of tea, temples, and the quiet art of breakfast.' },
-    { id: 'j2', cat: 'Food',     slug: 'everything-i-learned-from-sourdough', title: 'Everything I learned from sourdough', date: 'April 04, 2026',    read: '6 min', img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1000&q=80&auto=format&fit=crop', excerpt: 'Three years in, the starter is still teaching me patience.' },
-    { id: 'j3', cat: 'Vlog',     slug: 'a-day-of-markets-in-marrakech',       title: 'A day of markets in Marrakech',       date: 'March 22, 2026',    read: '5 min', img: 'https://images.unsplash.com/photo-1518544801976-3e159e50e5bb?w=1000&q=80&auto=format&fit=crop', excerpt: 'Saffron, preserved lemon, and the colour of 4pm light.' },
-    { id: 'j4', cat: 'Personal', slug: 'on-cooking-alone',                    title: 'On cooking alone',                    date: 'March 08, 2026',    read: '4 min', img: 'https://images.unsplash.com/photo-1495195134817-aeb325a55b65?w=1000&q=80&auto=format&fit=crop', excerpt: 'What the kitchen gives you when no one is watching.' },
-    { id: 'j5', cat: 'Travel',   slug: 'three-days-on-the-amalfi-coast',      title: 'Three days on the Amalfi coast',      date: 'February 27, 2026', read: '9 min', img: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1000&q=80&auto=format&fit=crop', excerpt: 'Lemons the size of your hand and a host named Giulia.' },
-    { id: 'j6', cat: 'Food',     slug: 'butter-again',                        title: 'Butter, again',                       date: 'February 10, 2026', read: '3 min', img: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=1000&q=80&auto=format&fit=crop', excerpt: 'A love letter to the ingredient I cannot stop thinking about.' },
+    { id: 'j1', cat: 'Travel',   slug: 'slow-mornings-in-kyoto',              title: 'Slow mornings in Kyoto',              date: '2026-04-18', read: '8 min', img: 'https://images.unsplash.com/photo-1528164344705-47542687000d?w=1000&q=80&auto=format&fit=crop', excerpt: 'A week of tea, temples, and the quiet art of breakfast.' },
+    { id: 'j2', cat: 'Food',     slug: 'everything-i-learned-from-sourdough', title: 'Everything I learned from sourdough', date: '2026-04-04', read: '6 min', img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1000&q=80&auto=format&fit=crop', excerpt: 'Three years in, the starter is still teaching me patience.' },
+    { id: 'j3', cat: 'Vlog',     slug: 'a-day-of-markets-in-marrakech',       title: 'A day of markets in Marrakech',       date: '2026-03-22', read: '5 min', img: 'https://images.unsplash.com/photo-1518544801976-3e159e50e5bb?w=1000&q=80&auto=format&fit=crop', excerpt: 'Saffron, preserved lemon, and the colour of 4pm light.' },
+    { id: 'j4', cat: 'Personal', slug: 'on-cooking-alone',                    title: 'On cooking alone',                    date: '2026-03-08', read: '4 min', img: 'https://images.unsplash.com/photo-1495195134817-aeb325a55b65?w=1000&q=80&auto=format&fit=crop', excerpt: 'What the kitchen gives you when no one is watching.' },
+    { id: 'j5', cat: 'Travel',   slug: 'three-days-on-the-amalfi-coast',      title: 'Three days on the Amalfi coast',      date: '2026-02-27', read: '9 min', img: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1000&q=80&auto=format&fit=crop', excerpt: 'Lemons the size of your hand and a host named Giulia.' },
+    { id: 'j6', cat: 'Food',     slug: 'butter-again',                        title: 'Butter, again',                       date: '2026-02-10', read: '3 min', img: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=1000&q=80&auto=format&fit=crop', excerpt: 'A love letter to the ingredient I cannot stop thinking about.' },
   ],
 };
 
 export const POST_DETAIL = {
   cat: 'Travel',
   title: 'Slow mornings in Kyoto',
-  date: 'April 18, 2026',
+  date: '2026-04-18',
   read: '8 min read',
   cover: 'https://images.unsplash.com/photo-1528164344705-47542687000d?w=1800&q=80&auto=format&fit=crop',
   intro: 'There is a particular kind of light in Kyoto at 6am — thin, blue, and completely still. I spent a week chasing it, and came home with more questions than photographs.',

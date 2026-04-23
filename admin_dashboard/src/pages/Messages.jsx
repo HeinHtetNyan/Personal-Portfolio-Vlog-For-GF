@@ -7,11 +7,13 @@ export default function Messages() {
   const [active, setActive] = useState(null);
   const [catFilter, setCatFilter] = useState('All');
   const [showDetail, setShowDetail] = useState(false);
+  const [reply, setReply] = useState('');
   const qc = useQueryClient();
 
   const { data: messages = [], isLoading } = useQuery({
     queryKey: ['admin-messages'],
     queryFn: () => getMessages(),
+    refetchInterval: 5000,
   });
 
   const markMut = useMutation({
@@ -34,6 +36,7 @@ export default function Messages() {
   const handleSelect = (id) => {
     setActive(id);
     setShowDetail(true);
+    setReply('');
     const m = messages.find(x => x.id === id);
     if (m && !m.is_read) markMut.mutate(id);
   };
@@ -109,8 +112,19 @@ export default function Messages() {
 
             <div className="card card-pad">
               <div style={{ fontFamily: 'var(--f-display)', fontStyle: 'italic', fontSize: 16, marginBottom: 12 }}>Reply</div>
-              <textarea className="textarea" rows={5} placeholder="Write a thoughtful reply…" style={{ marginBottom: 12 }} />
-              <a href={`mailto:${msg.email}`} className="btn btn-accent" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+              <textarea
+                className="textarea"
+                rows={5}
+                placeholder="Write a thoughtful reply…"
+                style={{ marginBottom: 12 }}
+                value={reply}
+                onChange={e => setReply(e.target.value)}
+              />
+              <a
+                href={`mailto:${msg.email}?subject=Re: ${encodeURIComponent(msg.subject || msg.category || '')}&body=${encodeURIComponent(reply)}`}
+                className="btn btn-accent"
+                style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6, opacity: reply.trim() ? 1 : 0.5, pointerEvents: reply.trim() ? 'auto' : 'none' }}
+              >
                 <Icon name="arrowRight" size={14} /> Reply via email
               </a>
             </div>

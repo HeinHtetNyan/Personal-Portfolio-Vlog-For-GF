@@ -20,6 +20,15 @@ class Post(Base):
 
     images = relationship("PostImage", back_populates="post", cascade="all, delete-orphan")
 
+    @property
+    def excerpt(self):
+        if not self.content:
+            return None
+        stripped = self.content.strip()
+        if len(stripped) <= 160:
+            return stripped
+        return stripped[:160].rsplit(' ', 1)[0] + '…'
+
 
 class PostImage(Base):
     __tablename__ = "post_images"

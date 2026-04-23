@@ -141,17 +141,7 @@ export default function Post({ go, slug }) {
           </div>
         )}
 
-        <div className="reveal" style={{ textAlign: 'center', margin: '80px 0 40px', fontFamily: 'var(--script)', fontSize: 32, color: 'var(--accent)' }}>— fin —</div>
-
-        <div className="reveal" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '24px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)', fontFamily: 'var(--sans)' }}>
-          <span style={{ fontSize: 12, letterSpacing: '.15em', textTransform: 'uppercase', color: 'var(--ink-3)' }}>Share this letter</span>
-          <div style={{ display: 'flex', gap: 16, fontSize: 13 }}>
-            <a href="#" onClick={e => e.preventDefault()} style={{ color: 'var(--ink-2)' }}>Twitter</a>
-            <a href="#" onClick={e => e.preventDefault()} style={{ color: 'var(--ink-2)' }}>Pinterest</a>
-            <button style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--ink-2)', fontFamily: 'var(--sans)', fontSize: 13 }}
-              onClick={() => navigator.clipboard.writeText(window.location.href)}>Copy link</button>
-          </div>
-        </div>
+        <div className="reveal" style={{ textAlign: 'center', margin: '80px 0 40px', fontFamily: 'var(--script)', fontSize: 32, color: 'var(--accent)' }}>— July —</div>
       </article>
 
       {morePosts.length > 0 && (
