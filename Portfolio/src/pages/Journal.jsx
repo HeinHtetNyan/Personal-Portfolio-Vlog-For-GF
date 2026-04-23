@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { useReveal } from '../hooks';
+import { useReveal, fmtDate } from '../hooks';
 import { IMG } from '../data';
 import Blobs from '../components/Blobs';
 import { getPosts } from '../api/posts';
@@ -99,7 +99,7 @@ export default function Journal({ go }) {
               <h2 style={{ fontSize: 'clamp(36px,4.5vw,64px)', lineHeight: 1.05, marginTop: 24 }}>{featured.title}</h2>
               <p style={{ fontSize: 18, marginTop: 20 }}>{featured.excerpt || ''}</p>
               <div style={{ marginTop: 28, color: 'var(--ink-3)', fontSize: 13 }}>
-                {featured.date ? new Date(featured.date + 'T00:00:00').toLocaleDateString() : new Date(featured.created_at).toLocaleDateString()}
+                {fmtDate(featured.date || featured.created_at)}
               </div>
               <button className="btn btn-ghost" style={{ marginTop: 32 }}>Read story <span className="arrow">→</span></button>
             </div>
@@ -122,7 +122,7 @@ export default function Journal({ go }) {
               <h3 style={{ fontSize: 26, marginTop: 18, lineHeight: 1.15 }}>{j.title}</h3>
               <p style={{ marginTop: 10, fontSize: 15 }}>{j.excerpt || ''}</p>
               <div style={{ marginTop: 16, fontSize: 12, color: 'var(--ink-3)', letterSpacing: '.1em', textTransform: 'uppercase' }}>
-                {j.date ? new Date(j.date + 'T00:00:00').toLocaleDateString() : new Date(j.created_at).toLocaleDateString()}
+                {fmtDate(j.date || j.created_at)}
               </div>
             </article>
           ))}

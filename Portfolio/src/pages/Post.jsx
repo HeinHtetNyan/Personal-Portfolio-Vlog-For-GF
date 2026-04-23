@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { useReveal } from '../hooks';
+import { useReveal, fmtDate } from '../hooks';
 import { POST_DETAIL } from '../data';
 import { getPost, getPosts } from '../api/posts';
 import { API_BASE } from '../api/client';
@@ -67,7 +67,7 @@ export default function Post({ go, slug }) {
         </div>
         <h1 className="reveal d1" style={{ fontSize: 'clamp(44px,6vw,92px)', lineHeight: 1.05, letterSpacing: '-0.015em' }}>{p.title}</h1>
         <div className="reveal d2" style={{ marginTop: 28, display: 'flex', justifyContent: 'center', gap: 16, color: 'var(--ink-3)', fontSize: 13, letterSpacing: '.1em', textTransform: 'uppercase' }}>
-          <span>{p.date ? new Date(p.date + 'T00:00:00').toLocaleDateString() : new Date(p.created_at).toLocaleDateString()}</span>
+          <span>{fmtDate(p.date || p.created_at)}</span>
           <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'var(--ink-3)', alignSelf: 'center' }} />
           <span>by <span style={{ fontFamily: 'var(--script)', textTransform: 'none', fontSize: 18, color: 'var(--accent)', verticalAlign: 'middle' }}>July</span></span>
         </div>

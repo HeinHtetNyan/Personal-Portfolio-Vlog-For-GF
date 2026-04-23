@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { useReveal } from '../hooks';
+import { useReveal, fmtDate } from '../hooks';
 import { IMG } from '../data';
 import Blobs from '../components/Blobs';
 import { getPosts } from '../api/posts';
@@ -197,7 +197,7 @@ export default function Home({ go }) {
                 </div>
                 <div style={{ marginTop: 18, display: 'flex', justifyContent: 'space-between', fontSize: 12, letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--ink-3)' }}>
                   <span style={{ color: 'var(--accent-ink)' }}>{p.category}</span>
-                  <span>{p.date ? new Date(p.date + 'T00:00:00').toLocaleDateString() : new Date(p.created_at).toLocaleDateString()}</span>
+                  <span>{fmtDate(p.date || p.created_at)}</span>
                 </div>
                 <h3 style={{ fontSize: 26, marginTop: 10, lineHeight: 1.15 }}>{p.title}</h3>
                 <p style={{ marginTop: 10, fontSize: 15 }}>{p.excerpt}</p>
