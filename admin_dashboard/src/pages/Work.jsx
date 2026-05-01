@@ -186,6 +186,10 @@ function WorkEditor({ setRoute, workId }) {
     setImgError('');
     setImgUploading(true);
     try {
+      // "Change" flow: delete existing image before uploading the replacement
+      if (images.length > 0) {
+        await deleteWorkImage(currentId, images[0].id);
+      }
       const res = await uploadMedia(file);
       await addWorkImage(currentId, res.file_url);
     } catch {
