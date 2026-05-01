@@ -3,10 +3,21 @@ from sqlalchemy.orm import Session
 from sqlalchemy import func
 from app.db.session import get_db
 from app.models.post import Post, PostImage
+from app.models.media import Media
 from app.schemas.post import PostCreate, PostUpdate, PostOut, PostListItem, PaginatedPosts, PostImageOut, slugify
+from app.services.storage import delete_file
 from pydantic import BaseModel
 from app.core.deps import require_admin
 import math
+
+
+def _purge_media(db: Session, url: str) -> None:
+    if not url:
+        return
+    media = db.query(Media).filter(Media.file_url == url).first()
+    if media:
+        delete_file(media.file_url)
+        db.delete(media)
 
 router = APIRouter(tags=["posts"])
 
@@ -97,6 +108,8 @@ def update_post(id: int, body: PostUpdate, db: Session = Depends(get_db)):
             slug = f"{base}-{counter}"
             counter += 1
         data["slug"] = slug
+    if "cover_image_url" in data and data["cover_image_url"] != post.cover_image_url:
+        _purge_media(db, post.cover_image_url)
     for field, value in data.items():
         setattr(post, field, value)
     db.commit()
@@ -109,6 +122,9 @@ def delete_post(id: int, db: Session = Depends(get_db)):
     post = db.query(Post).filter(Post.id == id).first()
     if not post:
         raise HTTPException(status_code=404, detail="Post not found")
+    _purge_media(db, post.cover_image_url)
+    for img in post.images:
+        _purge_media(db, img.image_url)
     db.delete(post)
     db.commit()
 
@@ -136,5 +152,6 @@ def delete_post_image(id: int, img_id: int, db: Session = Depends(get_db)):
     img = db.query(PostImage).filter(PostImage.id == img_id, PostImage.post_id == id).first()
     if not img:
         raise HTTPException(status_code=404, detail="Image not found")
+    _purge_media(db, img.image_url)
     db.delete(img)
     db.commit()
