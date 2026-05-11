@@ -1,197 +1,130 @@
-# July — Personal Portfolio & Blog
+# July — Personal Portfolio & Blog System
 
-A full-stack personal portfolio and blog system built for a chef and traveler. Includes a public-facing portfolio site, a private admin dashboard, and a FastAPI backend with PostgreSQL.
-
----
-
-## Project Structure
-
-```
-July_Portfolio/
-├── Portfolio/          # Public-facing portfolio website (React + Vite)
-├── admin_dashboard/    # Private admin dashboard (React + Vite)
-└── backend/            # REST API + database (FastAPI + PostgreSQL)
-```
+A unified, full-stack solution for a personal portfolio and blog. This system comprises a public-facing showcase, a private administrative dashboard, and a robust FastAPI backend.
 
 ---
 
-## Tech Stack
+## 🏗️ System Architecture
 
-| Layer | Technology |
+The project is structured as a monorepo containing three primary modules:
+
+- **`backend/`**: REST API built with FastAPI, PostgreSQL, and SQLAlchemy. Handles auth, media, and content logic.
+- **`Portfolio/`**: Public showcase built with React 18 and Vite. Optimized for performance and SEO.
+- **`admin_dashboard/`**: Private management portal for content creators.
+
+---
+
+## 🛠️ Tech Stack
+
+| Component | Technologies |
 |---|---|
-| Frontend (Portfolio) | React 18, Vite, TanStack Query, Axios |
-| Frontend (Admin) | React 18, Vite, TanStack Query, Axios |
-| Backend | FastAPI, SQLAlchemy 2.0, Pydantic v2, Uvicorn |
-| Database | PostgreSQL 16 |
-| Auth | JWT (python-jose + passlib) |
-| File Storage | Local uploads (served by FastAPI) |
-| Containerization | Docker + Docker Compose |
+| **Backend** | FastAPI, SQLAlchemy 2.0, Alembic, Pydantic v2, Uvicorn, PostgreSQL 16 |
+| **Frontend (Shared)** | React 18, Vite, TanStack Query, Axios, Lucide Icons, CSS Variables |
+| **Security** | JWT (python-jose), Bcrypt (passlib), SlowAPI (Rate Limiting) |
+| **Media** | Pillow (Image resizing & thumbnail generation), Aiofiles |
+| **Infrastructure** | Docker, Docker Compose |
 
 ---
 
-## Features
+## 🚀 Features
 
-### Portfolio Site
-- Home page with hero, featured work, about preview, and latest journal posts
-- Work gallery with masonry layout and category filtering (Dish / Restaurant / Review)
-- Journal with category filtering, pagination, and featured post
-- Individual post pages with cover image, content, photo gallery, and "Keep reading" section
-- About page with bio, pillars, and timeline
-- Contact form with category selection, sent directly to backend
-- Fully responsive design
+### 🍱 Public Portfolio (`/Portfolio`)
+- **Chef-Centric Design:** Masonry work gallery for dishes and restaurant reviews.
+- **Dynamic Journal:** Blog system with category filtering and pagination.
+- **Responsive Layout:** Tailored experience for desktop and mobile users.
+- **Secure Contact:** Rate-limited contact form integrated with the backend.
+- **Theming:** Integrated Dark/Light mode support.
 
-### Admin Dashboard
-- JWT-protected login
-- **Journal** — create, edit, publish/draft posts with cover photo, body text, category, custom date, and up to 5 photos per post
-- **Work** — create, edit, delete work entries with single cover photo, type, and location
-- **Messages** — view contact form submissions
-- **Settings** — manage admin account
+### 🛠️ Admin Dashboard (`/admin_dashboard`)
+- **Secure Portal:** JWT-protected login system.
+- **Journal Management:** Create, edit, and manage blog posts with rich media support.
+- **Work Management:** CRUD operations for portfolio entries and categories.
+- **Message Center:** View and manage incoming contact form submissions.
+- **Live Control:** Instant publishing or drafting of content.
 
-### Backend API
-- Public endpoints: posts (paginated), work, individual post by slug, contact form
-- Admin endpoints: full CRUD for posts and work, image upload, message inbox
-- Rate limiting on contact form
-- File upload with Pillow image processing
-- Auto-slug generation with uniqueness handling
+### ⚡ Backend Engine (`/backend`)
+- **Async API:** High-performance, non-blocking architecture.
+- **DB Migrations:** Versioned schema management with Alembic.
+- **Auto-Slugs:** Intelligent SEO-friendly URL generation.
+- **Media Processing:** Automated image handling during uploads.
+- **File Storage:** Local upload system with persistent volume support.
 
 ---
 
-## Getting Started
+## 🚦 Getting Started
 
 ### Prerequisites
-- [Docker](https://www.docker.com/) and Docker Compose
-- [Node.js](https://nodejs.org/) 18+ and npm
+- [Docker](https://www.docker.com/) & Docker Compose
+- [Node.js](https://nodejs.org/) 20+ & npm
 
 ---
 
-### 1. Backend
+### 1. Backend & Database Setup
+
+The backend includes a setup script to handle environment configuration and initial admin creation.
 
 ```bash
 cd backend
 
-# Copy and configure environment
-cp .env.example .env
-# Edit .env — set SECRET_KEY, FIRST_ADMIN_EMAIL, FIRST_ADMIN_PASSWORD
+# 1. Run interactive setup (generates .env and admin credentials)
+python3 setup.py
 
-# Start database + API
+# 2. Start services
 docker compose up -d
-
-# On first run, create the admin account
-docker exec -it backend-backend-1 python setup.py
 ```
 
-The API will be available at `http://localhost:8000`
-API docs: `http://localhost:8000/docs`
+> **Docs:** Once running, visit `http://localhost:8000/docs` for the interactive API documentation.
 
----
+### 2. Frontend Development
 
-### 2. Portfolio Site
+Both frontends can be started simultaneously during development.
 
+#### Public Portfolio
 ```bash
 cd Portfolio
-
-# Copy and configure environment
-cp .env.example .env
-# Edit .env — set your email, location, social links
-
+cp .env.example .env  # Ensure VITE_API_URL=http://localhost:8000
 npm install
-npm run dev
+npm run dev           # Runs at http://localhost:5173
 ```
 
-Runs at `http://localhost:5173`
-
----
-
-### 3. Admin Dashboard
-
+#### Admin Dashboard
 ```bash
 cd admin_dashboard
-
+cp .env.example .env  # Ensure VITE_API_URL=http://localhost:8000
 npm install
-npm run dev
+npm run dev           # Runs at http://localhost:5174
 ```
-
-Runs at `http://localhost:5174`  
-Login with the admin credentials you set in `backend/.env`
 
 ---
 
-## Environment Variables
+## ⚙️ Configuration (Environment Variables)
 
-### `Portfolio/.env`
+### Backend (`backend/.env`)
+- `DATABASE_URL`: Connection string for PostgreSQL.
+- `SECRET_KEY`: JWT signing key (generated by `setup.py`).
+- `FIRST_ADMIN_EMAIL`: Initial admin username.
+- `CORS_ORIGINS`: Comma-separated list of allowed frontend URLs.
 
-```env
-VITE_API_URL=http://localhost:8000
-
-VITE_CONTACT_EMAIL=your@email.com
-VITE_SITE_LOCATION=Your City
-
-VITE_SOCIAL_INSTAGRAM=
-VITE_SOCIAL_FACEBOOK=
-VITE_SOCIAL_LINE=
-VITE_SOCIAL_TIKTOK=
-VITE_SOCIAL_TWITTER=
-```
-
-### `admin_dashboard/.env`
-
-```env
-VITE_API_URL=http://localhost:8000
-```
-
-### `backend/.env`
-
-```env
-DATABASE_URL=postgresql://july:july_password@localhost:5432/july_portfolio
-SECRET_KEY=your-secret-key-here
-ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=10080
-
-UPLOAD_DIR=uploads
-MAX_UPLOAD_SIZE_MB=10
-CORS_ORIGINS=http://localhost:5173,http://localhost:5174
-
-FIRST_ADMIN_EMAIL=you@yourdomain.com
-FIRST_ADMIN_PASSWORD=choose-a-strong-password
-```
-
-> Generate a secure secret key with:
-> ```bash
-> python -c "import secrets; print(secrets.token_hex(32))"
-> ```
+### Frontends (`Portfolio/.env` & `admin_dashboard/.env`)
+- `VITE_API_URL`: The URL of your running Backend API.
+- `VITE_CONTACT_EMAIL`: (Portfolio only) Recipient for contact notifications.
 
 ---
 
-## API Overview
+## 📦 Production Build
 
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| GET | `/api/posts` | Public | List published posts (paginated) |
-| GET | `/api/posts/{slug}` | Public | Get single post |
-| GET | `/api/work` | Public | List work entries |
-| POST | `/api/contact` | Public | Submit contact form |
-| POST | `/api/admin/login` | — | Get JWT token |
-| GET/POST | `/api/admin/posts` | Admin | List / create posts |
-| PUT/DELETE | `/api/admin/posts/{id}` | Admin | Update / delete post |
-| POST | `/api/admin/posts/{id}/images` | Admin | Add photo to post |
-| GET/POST | `/api/admin/work` | Admin | List / create work entries |
-| PUT/DELETE | `/api/admin/work/{id}` | Admin | Update / delete work entry |
-| POST | `/api/admin/upload` | Admin | Upload media file |
-| GET | `/api/admin/messages` | Admin | View contact messages |
+To prepare the frontends for production deployment:
 
-Full interactive docs at `http://localhost:8000/docs`
+```bash
+# For Portfolio
+cd Portfolio && npm run build
+
+# For Admin Dashboard
+cd admin_dashboard && npm run build
+```
+Static files will be generated in the respective `dist/` folders, ready to be served by Nginx or a CDN.
 
 ---
 
-## Deployment Notes
-
-- Set `CORS_ORIGINS` in `backend/.env` to your production frontend URLs
-- Set `VITE_API_URL` in both frontend `.env` files to your production API URL
-- Uploaded files in `backend/uploads/` should be persisted (volume mount or object storage)
-- Build the frontends with `npm run build` — output goes to `dist/`
-
----
-
-## License
-
+## 📄 License
 Personal project. Not licensed for redistribution.
